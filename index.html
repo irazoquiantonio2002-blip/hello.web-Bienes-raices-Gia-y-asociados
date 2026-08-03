@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienes Raices GIA y Asociados | Departamentos en Tesistan y Zapopan Norte</title>
+  <meta name="description" content="Bienes Raices GIA y Asociados comercializa departamentos en Tesistan y Zapopan Norte, con asesoria personalizada de Alberto Aguilar y opciones de credito Infonavit, Fovissste y bancario. Consulta precios y disponibilidad por WhatsApp.">
+  <meta name="keywords" content="Bienes Raices GIA, departamentos en Tesistan, departamentos Zapopan Norte, Alberto Aguilar asesor inmobiliario, credito Infonavit Fovissste bancario, consultar precios por WhatsApp">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bienes Raices GIA y Asociados">
+  <meta property="og:description" content="Tu nuevo hogar en Tesistan y Zapopan Norte. Consulta precios y disponibilidad por WhatsApp con asesoria personalizada.">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    :root {
+      --red: #C8102E;
+      --red-dark: #9F0D25;
+      --ink: #090909;
+      --muted: #666666;
+      --line: rgba(9, 9, 9, 0.1);
+      --soft: #F5F5F5;
+      --white: #FFFFFF;
+      --green: #1F3B2D;
+      --gold: #BFA36A;
+      --shadow: 0 22px 55px rgba(9, 9, 9, 0.14);
+      --shadow-soft: 0 12px 34px rgba(200, 16, 46, 0.18);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    body.is-loading { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input, textarea, select { font: inherit; }
+    section { position: relative; overflow: hidden; }
+    .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    .section { padding: 92px 0; }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--red);
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    .section-head {
+      display: grid;
+      gap: 14px;
+      max-width: 760px;
+      margin: 0 auto 46px;
+      text-align: center;
+    }
+
+    .section-head .kicker { justify-content: center; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { letter-spacing: 0; }
+    .section-title {
+      margin-bottom: 0;
+      font-size: 3rem;
+      line-height: 1.04;
+      font-weight: 900;
+    }
+
+    .accent { color: var(--red); font-style: italic; font-weight: 700; }
+    .lead {
+      color: rgba(9, 9, 9, 0.68);
+      line-height: 1.8;
+      margin-bottom: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-red {
+      background: linear-gradient(135deg, var(--red), var(--red-dark));
+      color: var(--white);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-ghost {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .btn-dark {
+      color: var(--ink);
+      border-color: var(--line);
+      background: var(--white);
+    }
+
+    #page-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(135deg, rgba(9, 9, 9, 0.96), rgba(75, 8, 18, 0.98)),
+        radial-gradient(circle at center, rgba(200, 16, 46, 0.36), transparent 48%);
+      color: var(--white);
+      transition: opacity 0.85s ease, visibility 0.85s ease;
+    }
+
+    #page-loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader-box {
+      display: grid;
+      place-items: center;
+      gap: 18px;
+      text-align: center;
+      transform: translateY(-8px);
+    }
+
+    .loader-logo {
+      position: relative;
+      width: 142px;
+      height: 112px;
+      display: grid;
+      place-items: center;
+    }
+
+    .loader-logo::before,
+    .loader-logo::after {
+      content: "";
+      position: absolute;
+      inset: -8px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: var(--radius);
+      animation: loaderPulse 2.6s ease-out infinite;
+    }
+
+    .loader-logo::after {
+      inset: -18px;
+      animation-delay: 0.38s;
+    }
+
+    .loader-logo img {
+      width: 118px;
+      filter: drop-shadow(0 22px 28px rgba(0, 0, 0, 0.34));
+      z-index: 1;
+    }
+
+    .loader-word {
+      margin: 0;
+      font-size: 0.78rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .loader-line {
+      width: 220px;
+      height: 3px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .loader-line span {
+      display: block;
+      height: 100%;
+      width: 42%;
+      background: linear-gradient(90deg, transparent, var(--red), #fff, transparent);
+      animation: loadSweep 1.8s ease-in-out infinite;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      background: rgba(255, 255, 255, 0.86);
+      border-bottom: 1px solid rgba(9, 9, 9, 0.08);
+      backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+      width: min(1220px, calc(100% - 28px));
+      margin: 0 auto;
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 250px;
+    }
+
+    .brand img {
+      width: 82px;
+      height: 68px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 14px rgba(200, 16, 46, 0.18));
+    }
+
+    .brand strong {
+      display: block;
+      font-size: 0.86rem;
+      line-height: 1.12;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      color: rgba(9, 9, 9, 0.72);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .nav a:not(.btn):hover { color: var(--red); }
+    .header-wa { white-space: nowrap; }
+
+    .particles-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.45;
+    }
+
+    .hero {
+      min-height: 790px;
+      display: grid;
+      align-items: center;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(8, 8, 8, 0.82), rgba(8, 8, 8, 0.46), rgba(8, 8, 8, 0.54)),
+        url("https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2200&q=85") center/cover fixed no-repeat;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.36)),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 120px);
+      mix-blend-mode: screen;
+      opacity: 0.5;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 130px;
+      background: linear-gradient(180deg, transparent, var(--white));
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 42px;
+      align-items: center;
+      padding: 78px 0 96px;
+    }
+
+    .hero h1 {
+      margin: 20px 0 18px;
+      font-size: 4.8rem;
+      line-height: 0.96;
+      font-weight: 900;
+      max-width: 760px;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 1.06rem;
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 34px;
+      max-width: 720px;
+    }
+
+    .trust-pill {
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.09);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius);
+      padding: 14px;
+    }
+
+    .trust-pill strong {
+      display: block;
+      color: #fff;
+      font-size: 1.15rem;
+      line-height: 1;
+    }
+
+    .trust-pill span {
+      display: block;
+      margin-top: 6px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-panel {
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius);
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+
+    .panel-caption {
+      position: absolute;
+      inset: auto 24px 24px 24px;
+      border-radius: var(--radius);
+      padding: 18px;
+      background: rgba(9, 9, 9, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+    }
+
+    .panel-caption strong {
+      display: block;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .panel-caption span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+      transition-delay: var(--delay, 0ms);
+    }
+
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .title-scan {
+      background: linear-gradient(90deg, #fff, #ffd1d8, #fff);
+      background-size: 220% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: titleScan 4.6s ease-in-out infinite;
+    }
+
+    .why-grid,
+    .property-grid,
+    .gallery-grid,
+    .process-grid,
+    .value-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .why-grid { grid-template-columns: repeat(4, 1fr); }
+    .property-grid { grid-template-columns: repeat(3, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+    .process-grid { grid-template-columns: repeat(3, 1fr); }
+    .value-grid { grid-template-columns: repeat(4, 1fr); }
+
+    .number-card,
+    .property-card,
+    .process-card,
+    .gallery-item,
+    .value-card,
+    .contact-card {
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--white);
+      box-shadow: 0 16px 36px rgba(9, 9, 9, 0.06);
+    }
+
+    .number-card {
+      position: relative;
+      min-height: 248px;
+      padding: 24px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .number-card:hover,
+    .property-card:hover,
+    .gallery-item:hover,
+    .process-card:hover,
+    .value-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 50px rgba(9, 9, 9, 0.1);
+    }
+
+    .big-number {
+      position: absolute;
+      right: 14px;
+      top: 10px;
+      font-size: 4.2rem;
+      line-height: 1;
+      font-weight: 900;
+      color: rgba(200, 16, 46, 0.1);
+    }
+
+    .number-card h3 {
+      position: relative;
+      margin: 78px 0 12px;
+      font-size: 1.08rem;
+      text-transform: uppercase;
+    }
+
+    .number-card p,
+    .property-card p,
+    .process-card p,
+    .value-card p {
+      color: rgba(9, 9, 9, 0.66);
+      line-height: 1.75;
+      margin-bottom: 0;
+      font-size: 0.92rem;
+    }
+
+    .soft-section {
+      background:
+        linear-gradient(180deg, #fff, #f7f7f7),
+        repeating-linear-gradient(90deg, rgba(200, 16, 46, 0.04) 0 1px, transparent 1px 90px);
+    }
+
+    .property-card {
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .property-card figure { margin: 0; position: relative; overflow: hidden; }
+    .property-card img {
+      width: 100%;
+      height: 285px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .property-card:hover img,
+    .gallery-item:hover img { transform: scale(1.06); }
+
+    .tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      border-radius: 999px;
+      padding: 8px 10px;
+      color: var(--red);
+      background: rgba(255, 255, 255, 0.92);
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .property-body { padding: 20px; }
+    .property-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--red);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .property-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.42rem;
+    }
+
+    .property-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .price { color: var(--red); font-size: 1.12rem; font-weight: 900; }
+
+    .parallax {
+      min-height: 430px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(9, 9, 9, 0.76), rgba(9, 9, 9, 0.36)),
+        url("A5057991ACC9A9A95FC766E64D3A5401.jpeg") center/cover fixed no-repeat;
+    }
+
+    .parallax-inner {
+      position: relative;
+      z-index: 3;
+      width: min(860px, calc(100% - 32px));
+    }
+
+    .parallax h2 {
+      margin-bottom: 16px;
+      font-size: 3.4rem;
+      line-height: 1.06;
+    }
+
+    .parallax p {
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.8;
+      margin-bottom: 0;
+    }
+
+    .process-card {
+      position: relative;
+      min-height: 230px;
+      padding: 24px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .step {
+      display: inline-block;
+      margin-bottom: 34px;
+      color: var(--red);
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .process-card::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 18px;
+      top: 12px;
+      color: rgba(200, 16, 46, 0.1);
+      font-size: 5.2rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .process-card h3,
+    .value-card h3 { margin-bottom: 12px; font-size: 1.2rem; }
+
+    .value-card {
+      padding: 24px 18px;
+      text-align: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .value-card strong {
+      display: block;
+      color: var(--red);
+      font-size: 3rem;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .gallery-item {
+      position: relative;
+      min-height: 300px;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item figcaption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 58px 16px 16px;
+      color: #fff;
+      background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.78));
+    }
+
+    .gallery-item strong { display: block; }
+    .gallery-item span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.78rem;
+    }
+
+    .advisor {
+      background:
+        linear-gradient(90deg, rgba(9, 9, 9, 0.72), rgba(9, 9, 9, 0.38)),
+        url("A5439B0A91DCF88F9A9C3CFDDA04A2C9.jpeg") center/cover fixed no-repeat;
+      color: #fff;
+    }
+
+    .advisor-grid {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .advisor-card {
+      border-radius: var(--radius);
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.11);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(16px);
+    }
+
+    .advisor-card h2 {
+      margin-bottom: 14px;
+      font-size: 3rem;
+      line-height: 1.04;
+    }
+
+    .advisor-list {
+      display: grid;
+      gap: 12px;
+      padding: 0;
+      margin: 26px 0 0;
+      list-style: none;
+    }
+
+    .advisor-list li {
+      display: flex;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.84);
+      line-height: 1.6;
+    }
+
+    .advisor-list i { color: var(--gold); margin-top: 5px; }
+
+    .contact {
+      background: var(--soft);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .contact-photo {
+      position: relative;
+      min-height: 680px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(180deg, rgba(9, 9, 9, 0.1), rgba(9, 9, 9, 0.76)),
+        url("A5BD0EFEF8507E3055BEBE97BAD769E2.jpeg") center/cover no-repeat;
+    }
+
+    .contact-photo-caption {
+      position: absolute;
+      inset: auto 20px 20px;
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 20px;
+      background: rgba(9, 9, 9, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(12px);
+    }
+
+    .contact-photo-caption strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .contact-card { padding: 24px; }
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 12px;
+      padding: 14px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(200, 16, 46, 0.1);
+      background: rgba(200, 16, 46, 0.035);
+    }
+
+    .contact-item i {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 40px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      color: #fff;
+      background: linear-gradient(135deg, var(--red), var(--red-dark));
+    }
+
+    .contact-item strong { display: block; margin-bottom: 3px; }
+    .contact-item span, .contact-item a {
+      display: block;
+      color: rgba(9, 9, 9, 0.68);
+      line-height: 1.55;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      border: 1px solid rgba(9, 9, 9, 0.12);
+      border-radius: var(--radius);
+      padding: 14px;
+      color: var(--ink);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .contact-form textarea { min-height: 112px; resize: vertical; }
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: rgba(200, 16, 46, 0.5);
+      box-shadow: 0 0 0 4px rgba(200, 16, 46, 0.08);
+    }
+
+    .map-wrap {
+      margin-top: 18px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .map-wrap iframe { width: 100%; min-height: 260px; border: 0; display: block; }
+
+    .site-footer {
+      color: rgba(255, 255, 255, 0.78);
+      background: #111;
+      padding: 58px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr 1fr 1fr;
+      gap: 28px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand img { width: 78px; filter: drop-shadow(0 8px 14px rgba(200, 16, 46, 0.22)); }
+    .footer-brand strong {
+      display: block;
+      color: #fff;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .footer-brand span {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.68rem;
+      color: rgba(255, 255, 255, 0.54);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .footer-copy { color: rgba(255, 255, 255, 0.68); line-height: 1.75; }
+    .footer-col h3 {
+      margin-bottom: 14px;
+      color: #fff;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .footer-col a,
+    .footer-col span {
+      display: block;
+      margin-bottom: 9px;
+      color: rgba(255, 255, 255, 0.68);
+      line-height: 1.55;
+    }
+
+    .socials { display: flex; gap: 8px; margin-top: 18px; }
+    .socials a {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-bottom {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.52);
+      font-size: 0.78rem;
+    }
+
+    .whatsapp-fab {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 8px 12px 8px 8px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(9, 9, 9, 0.1);
+      box-shadow: 0 18px 40px rgba(9, 9, 9, 0.16);
+      backdrop-filter: blur(12px);
+    }
+
+    .whatsapp-fab a {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 1.35rem;
+      background: linear-gradient(135deg, #25D366, #128C3B);
+    }
+
+    .whatsapp-fab span {
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    @keyframes loaderPulse {
+      0% { opacity: 0.95; transform: scale(0.94); }
+      100% { opacity: 0; transform: scale(1.18); }
+    }
+
+    @keyframes loadSweep {
+      0% { transform: translateX(-120%); }
+      100% { transform: translateX(260%); }
+    }
+
+    @keyframes titleScan {
+      0%, 100% { background-position: 0 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    @media (max-width: 1060px) {
+      .header-inner { flex-wrap: wrap; justify-content: center; padding: 10px 0; }
+      .brand { justify-content: center; min-width: 100%; }
+      .hero-grid,
+      .advisor-grid,
+      .contact-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 4rem; }
+      .why-grid,
+      .property-grid,
+      .gallery-grid,
+      .value-grid,
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-photo { min-height: 520px; }
+    }
+
+    @media (max-width: 760px) {
+      .section { padding: 68px 0; }
+      .section-title,
+      .advisor-card h2,
+      .parallax h2 { font-size: 2.25rem; }
+      .hero { min-height: 760px; background-attachment: scroll; }
+      .parallax, .advisor { background-attachment: scroll; }
+      .hero-grid { padding: 58px 0 80px; gap: 24px; }
+      .hero h1 { font-size: 3rem; }
+      .hero-copy { font-size: 1rem; }
+      .trust-row,
+      .why-grid,
+      .property-grid,
+      .gallery-grid,
+      .process-grid,
+      .value-grid,
+      .footer-grid,
+      .form-row { grid-template-columns: 1fr; }
+      .nav { width: 100%; gap: 14px; flex-wrap: wrap; }
+      .header-wa { width: 100%; }
+      .brand strong { font-size: 0.78rem; }
+      .brand img { width: 74px; }
+      .hero-panel img { aspect-ratio: 4 / 3; }
+      .contact-photo { min-height: 420px; }
+      .whatsapp-fab span { display: none; }
+    }
+  </style>
+</head>
+
+<body class="is-loading">
+  <div id="page-loader" aria-live="polite">
+    <div class="loader-box">
+      <div class="loader-logo">
+        <img src="logo-gia-mark.png" alt="Logo GIA">
+      </div>
+      <p class="loader-word">Cargando...</p>
+      <div class="loader-line"><span></span></div>
+    </div>
+  </div>
+
+  <canvas class="particles-canvas" id="particles" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#inicio" class="brand" aria-label="Bienes Raices GIA y Asociados">
+        <img src="logo-gia-mark.png" alt="Logo Bienes Raices GIA y Asociados">
+        <span>
+          <strong>Bienes Raices GIA<br>y Asociados</strong>
+          <span>Donde comienza tu nuevo hogar</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Navegacion principal">
+        <a href="#propiedades">Propiedades</a>
+        <a href="#ventajas">Ventajas</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#galeria">Galeria</a>
+        <a class="btn btn-red header-wa" href="https://wa.me/523322099471?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20departamentos%20con%20Bienes%20Ra%C3%ADces%20GIA%20y%20Asociados." target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp"></i>
+          WhatsApp
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero" aria-label="Portada principal">
+      <div class="container hero-grid">
+        <div>
+          <div class="kicker" data-reveal style="--delay:80ms;">Departamentos en Tesistan y Zapopan Norte</div>
+          <h1 data-reveal style="--delay:180ms;">Deja de pagar renta y encuentra tu <span class="title-scan">nuevo hogar</span>.</h1>
+          <p class="hero-copy" data-reveal style="--delay:300ms;">Bienes Raices GIA y Asociados te acompana con asesoria personalizada para conocer, elegir y apartar departamentos con amenidades, seguridad y ubicaciones seleccionadas con gran plusvalia.</p>
+          <div class="hero-actions" data-reveal style="--delay:430ms;">
+            <a href="#propiedades" class="btn btn-red"><i class="fa-solid fa-building"></i> Ver opciones</a>
+            <a href="#contacto" class="btn btn-ghost"><i class="fa-solid fa-calendar-check"></i> Agendar cita</a>
+          </div>
+          <div class="trust-row" data-reveal style="--delay:560ms;">
+            <div class="trust-pill"><strong>Precio por WhatsApp</strong><span>Consulta vigente antes de apartar</span></div>
+            <div class="trust-pill"><strong>Creditos</strong><span>Infonavit, Fovissste y bancario</span></div>
+            <div class="trust-pill"><strong>Alberto Aguilar</strong><span>Asesor inmobiliario</span></div>
+          </div>
+        </div>
+
+        <aside class="hero-panel" data-reveal style="--delay:650ms;" aria-label="Promocion destacada">
+          <img src="A5187BDED62CCE6536C7A9F1C8B27576.jpeg" alt="Interior de departamento muestra en Tesistan">
+          <div class="panel-caption">
+            <strong>Tesistan</strong>
+            <span>Consulta precio y disponibilidad por WhatsApp</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="ventajas">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="kicker">Por que elegirnos</span>
+          <h2 class="section-title">Una asesoria inmobiliaria clara, cercana y enfocada en <span class="accent">tu compra</span></h2>
+          <p class="lead">GIA y Asociados se especializa en comercializar propiedades accesibles, con atencion personalizada y una propuesta centrada en calidad, ubicacion y estilo de vida.</p>
+        </div>
+
+        <div class="why-grid">
+          <article class="number-card" data-reveal>
+            <span class="big-number">01</span>
+            <h3>Ubicaciones con valor</h3>
+            <p>Opciones en zonas mencionadas en los materiales: Tesistan y Zapopan Norte, pensadas para conectar con la vida diaria.</p>
+          </article>
+          <article class="number-card" data-reveal>
+            <span class="big-number">02</span>
+            <h3>Consulta transparente</h3>
+            <p>Los precios y la disponibilidad se consultan directamente por WhatsApp para confirmar informacion vigente antes de apartar.</p>
+          </article>
+          <article class="number-card" data-reveal>
+            <span class="big-number">03</span>
+            <h3>Credito flexible</h3>
+            <p>Materiales del proyecto indican aceptacion de credito Infonavit, Fovissste y bancario para facilitar el proceso.</p>
+          </article>
+          <article class="number-card" data-reveal>
+            <span class="big-number">04</span>
+            <h3>Acompanamiento humano</h3>
+            <p>Alberto Aguilar, asesor inmobiliario, concentra el contacto directo para resolver dudas y agendar visitas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft-section" id="propiedades">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="kicker">Servicios y propiedades</span>
+          <h2 class="section-title">Opciones reales para dar el siguiente paso hacia tu <span class="accent">hogar</span></h2>
+          <p class="lead">Conoce interiores, exteriores y amenidades visibles en los materiales reales del proyecto para tomar una decision con mayor confianza.</p>
+        </div>
+
+        <div class="property-grid">
+          <article class="property-card" data-reveal>
+            <figure>
+              <img src="A5187BDED62CCE6536C7A9F1C8B27576.jpeg" alt="Sala y comedor de departamento muestra en Tesistan" loading="lazy">
+              <span class="tag">Tesistan</span>
+            </figure>
+            <div class="property-body">
+              <div class="property-meta"><span>Departamento muestra</span></div>
+              <h3>Interior equipado para imaginar tu vida diaria</h3>
+              <p>Espacio de sala, comedor y cocina abierta con distribucion funcional para familias y jovenes profesionales.</p>
+              <div class="property-foot">
+                <span class="price">Consultar precio por WhatsApp</span>
+                <a href="#contacto" class="btn btn-dark">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="property-card" data-reveal>
+            <figure>
+              <img src="A5057991ACC9A9A95FC766E64D3A5401.jpeg" alt="Conjunto de departamentos con vialidades internas y estacionamiento" loading="lazy">
+              <span class="tag">Zapopan Norte</span>
+            </figure>
+            <div class="property-body">
+              <div class="property-meta"><span>Residencial Terpalza</span></div>
+              <h3>Departamentos en desarrollo residencial</h3>
+              <p>Conjunto habitacional con vialidades internas, areas verdes y entorno residencial documentado en las imagenes.</p>
+              <div class="property-foot">
+                <span class="price">Precio sujeto a consulta</span>
+                <a href="#contacto" class="btn btn-dark">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="property-card" data-reveal>
+            <figure>
+              <img src="A549DC857986E3291F10050AD110B128.jpeg" alt="Render de amenidades de Terpalza Residencial con terraza y areas verdes" loading="lazy">
+              <span class="tag">Amenidades</span>
+            </figure>
+            <div class="property-body">
+              <div class="property-meta"><span>Terraza y areas verdes</span></div>
+              <h3>Amenidades para comodidad y convivencia</h3>
+              <p>Materiales del residencial muestran terraza, pinatero, cancha estilo futbol 7 y areas verdes de descanso.</p>
+              <div class="property-foot">
+                <span class="price">Consulta por WhatsApp</span>
+                <a href="#contacto" class="btn btn-dark">Agendar</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="parallax" aria-label="Mensaje de marca">
+      <div class="parallax-inner" data-reveal>
+        <span class="kicker" style="color:#fff;">GIA y Asociados</span>
+        <h2>Donde comienza tu nuevo hogar.</h2>
+        <p>La compra de una propiedad necesita informacion clara, fotos reales, asesoria confiable y un proceso sencillo. Esa es la experiencia que buscamos construir en cada contacto.</p>
+      </div>
+    </section>
+
+    <section class="section" id="proceso">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="kicker">Proceso simple</span>
+          <h2 class="section-title">Comprar o apartar se entiende mejor en <span class="accent">tres pasos</span></h2>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card" data-step="01" data-reveal>
+            <span class="step">Paso 01</span>
+            <h3>Escribe por WhatsApp</h3>
+            <p>Comparte tu presupuesto, si cuentas con credito y la zona que te interesa para recibir orientacion inicial.</p>
+          </article>
+          <article class="process-card" data-step="02" data-reveal>
+            <span class="step">Paso 02</span>
+            <h3>Agenda tu cita</h3>
+            <p>Conoce las opciones disponibles, amenidades y condiciones de compra. Todo precio debe confirmarse por WhatsApp antes de apartar.</p>
+          </article>
+          <article class="process-card" data-step="03" data-reveal>
+            <span class="step">Paso 03</span>
+            <h3>Conoce y aparta</h3>
+            <p>Recibe acompanamiento de Alberto Aguilar para resolver dudas y avanzar con seguridad hacia tu nuevo hogar.</p>
+          </article>
+        </div>
+
+        <div class="value-grid" style="margin-top:24px;">
+          <article class="value-card" data-reveal>
+            <strong data-count="2">0</strong>
+            <p>zonas mencionadas en el proyecto: Tesistan y Zapopan Norte</p>
+          </article>
+          <article class="value-card" data-reveal>
+            <strong data-count="4">0</strong>
+            <p>razones de valor: ubicacion, credito, asesoria y amenidades</p>
+          </article>
+          <article class="value-card" data-reveal>
+            <strong data-count="3">0</strong>
+            <p>tipos de credito mencionados: Infonavit, Fovissste y bancario</p>
+          </article>
+          <article class="value-card" data-reveal>
+            <strong data-count="2">0</strong>
+            <p>telefonos de contacto proporcionados para asesoria directa</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft-section" id="galeria">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="kicker">Galeria real</span>
+          <h2 class="section-title">Espacios, amenidades y materiales del proyecto</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <figure class="gallery-item" data-reveal>
+            <img src="A533F0CB75E7EAF7367F38273F7DF00C.jpeg" alt="Recamara de departamento muestra con cama y decoracion" loading="lazy">
+            <figcaption><strong>Recamara muestra</strong><span>Ambiente interior del departamento.</span></figcaption>
+          </figure>
+          <figure class="gallery-item" data-reveal>
+            <img src="A574C4FC1E69E5DFD68A2B2E12B33F74.jpeg" alt="Bano de departamento muestra con cancel y lavabo" loading="lazy">
+            <figcaption><strong>Bano equipado</strong><span>Fotografia real del espacio interior.</span></figcaption>
+          </figure>
+          <figure class="gallery-item" data-reveal>
+            <img src="A5FC11B02F11416FAF97EE9F15B5C3F4.jpeg" alt="Area infantil de conjunto residencial con juegos" loading="lazy">
+            <figcaption><strong>Area infantil</strong><span>Zona recreativa visible en el residencial.</span></figcaption>
+          </figure>
+          <figure class="gallery-item" data-reveal>
+            <img src="A5A0E55EEC51CD5703EE5B014C2E90C4.jpeg" alt="Cancha de futbol del conjunto residencial" loading="lazy">
+            <figcaption><strong>Cancha de futbol</strong><span>Amenidad anunciada en los materiales.</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section advisor" aria-label="Asesor inmobiliario">
+      <div class="container advisor-grid">
+        <div></div>
+        <div class="advisor-card" data-reveal>
+          <span class="kicker" style="color:#fff;">Asesoria personalizada</span>
+          <h2>Alberto Aguilar, asesor inmobiliario.</h2>
+          <p style="color:rgba(255,255,255,0.82);line-height:1.8;margin-bottom:0;">Los materiales proporcionados identifican a Alberto Aguilar como asesor de Bienes Raices GIA y Asociados. El contacto principal mostrado es 33 2209 9471.</p>
+          <ul class="advisor-list">
+            <li><i class="fa-solid fa-building-shield"></i><span>Proyectos de calidad.</span></li>
+            <li><i class="fa-solid fa-leaf"></i><span>Diseno y sostenibilidad.</span></li>
+            <li><i class="fa-solid fa-users"></i><span>Asesoria personalizada.</span></li>
+            <li><i class="fa-solid fa-shield-halved"></i><span>Inversion segura.</span></li>
+          </ul>
+          <div class="hero-actions">
+            <a class="btn btn-red" href="https://wa.me/523322099471?text=Hola%20Alberto%2C%20quiero%20informaci%C3%B3n%20sobre%20departamentos%20con%20GIA%20y%20Asociados." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Hablar con Alberto</a>
+            <a class="btn btn-ghost" href="tel:+523316038047"><i class="fa-solid fa-phone"></i> 33 1603 8047</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contacto">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="kicker">Contacto</span>
+          <h2 class="section-title">Solicita informacion y recibe respuesta por <span class="accent">WhatsApp</span></h2>
+          <p class="lead">Comparte tus datos y continua la conversacion directo por WhatsApp con el mensaje ya preparado.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-photo" data-reveal>
+            <div class="contact-photo-caption">
+              <strong>Tu nuevo hogar en Tesistan</strong>
+              <p style="margin:0;color:rgba(255,255,255,0.78);line-height:1.7;">Agenda tu cita, conoce el desarrollo y confirma precio vigente por WhatsApp.</p>
+            </div>
+          </div>
+
+          <div class="contact-card" data-reveal>
+            <h3 style="font-size:1.6rem;margin-bottom:8px;">Agenda tu asesoria</h3>
+            <p class="lead">Atencion directa para resolver dudas sobre creditos, disponibilidad, visitas y precios vigentes.</p>
+            <div class="contact-list">
+              <div class="contact-item">
+                <i class="fa-solid fa-user-tie"></i>
+                <div><strong>Asesor</strong><span>Alberto Aguilar</span></div>
+              </div>
+              <div class="contact-item">
+                <i class="fa-brands fa-whatsapp"></i>
+                <div>
+                  <strong>WhatsApp / Telefonos</strong>
+                  <a href="tel:+523322099471">33 2209 9471</a>
+                  <a href="tel:+523316038047">33 1603 8047</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <div><strong>Zona de propiedades</strong><span>Tesistan y Zapopan Norte, Jalisco.</span></div>
+              </div>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+              <div class="form-row">
+                <input type="text" name="nombre" placeholder="Nombre completo" required autocomplete="name" aria-label="Nombre completo">
+                <input type="tel" name="telefono" placeholder="Telefono" required autocomplete="tel" aria-label="Telefono">
+              </div>
+              <select name="interes" required aria-label="Interes principal">
+                <option value="" selected disabled>Me interesa...</option>
+                <option>Departamento en Tesistan</option>
+                <option>Departamentos en Zapopan Norte</option>
+                <option>Informacion de creditos</option>
+                <option>Agendar una cita</option>
+              </select>
+              <textarea name="mensaje" placeholder="Cuéntanos si ya tienes credito Infonavit, Fovissste o bancario, y que tipo de departamento buscas." aria-label="Mensaje"></textarea>
+              <button class="btn btn-red" type="submit"><i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp</button>
+            </form>
+
+            <div class="map-wrap">
+              <iframe title="Mapa de zona de Tesistan, Zapopan" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Tesist%C3%A1n%2C%20Zapopan%2C%20Jalisco&output=embed"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="logo-gia-mark.png" alt="Logo GIA y Asociados">
+            <div>
+              <strong>Bienes Raices GIA y Asociados</strong>
+              <span>Donde comienza tu nuevo hogar</span>
+            </div>
+          </div>
+          <p class="footer-copy">Comercializacion de propiedades inmobiliarias con enfoque en vivienda accesible, atencion personalizada y opciones en Tesistan y Zapopan Norte.</p>
+          <div class="socials" aria-label="Redes sociales">
+            <a href="https://www.facebook.com/share/1Hsh5J1Hcb/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.facebook.com/share/19J9KpWuZy/" target="_blank" rel="noopener noreferrer" aria-label="Facebook alterno"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://wa.me/523322099471" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Menu</h3>
+          <a href="#inicio">Inicio</a>
+          <a href="#propiedades">Propiedades</a>
+          <a href="#ventajas">Ventajas</a>
+          <a href="#proceso">Proceso</a>
+        </div>
+        <div class="footer-col">
+          <h3>Propiedades</h3>
+          <span>Tesistan</span>
+          <span>Zapopan Norte</span>
+          <span>Precios por WhatsApp</span>
+        </div>
+        <div class="footer-col">
+          <h3>Contacto</h3>
+          <a href="tel:+523322099471">33 2209 9471</a>
+          <a href="tel:+523316038047">33 1603 8047</a>
+          <a href="https://wa.me/523322099471" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Bienes Raices GIA y Asociados. Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <div class="whatsapp-fab" aria-label="Contacto rapido por WhatsApp">
+    <a href="https://wa.me/523322099471?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20departamentos%20con%20Bienes%20Ra%C3%ADces%20GIA%20y%20Asociados." target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <span>Contactar</span>
+  </div>
+
+  <script>
+    const loader = document.getElementById("page-loader");
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        loader.classList.add("hidden");
+        document.body.classList.remove("is-loading");
+      }, 1450);
+    });
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reveals = document.querySelectorAll("[data-reveal]");
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+    reveals.forEach((el) => revealObserver.observe(el));
+
+    const counters = document.querySelectorAll("[data-count]");
+    const formatCounter = (target, value) => {
+      return Math.floor(value).toString();
+    };
+
+    const animateCounter = (el) => {
+      const target = Number(el.dataset.count || 0);
+      const start = performance.now();
+      const duration = 1250;
+      const tick = (time) => {
+        const progress = Math.min(1, (time - start) / duration);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = formatCounter(target, target * eased);
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.42 });
+    counters.forEach((counter) => counterObserver.observe(counter));
+
+    const form = document.getElementById("contactForm");
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const nombre = data.get("nombre") || "";
+      const telefono = data.get("telefono") || "";
+      const interes = data.get("interes") || "";
+      const mensaje = data.get("mensaje") || "";
+      const text = [
+        "Hola Alberto, quiero informacion sobre Bienes Raices GIA y Asociados.",
+        `Nombre: ${nombre}`,
+        `Telefono: ${telefono}`,
+        `Interes: ${interes}`,
+        mensaje ? `Mensaje: ${mensaje}` : ""
+      ].filter(Boolean).join("\n");
+      window.open(`https://wa.me/523322099471?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+    });
+
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+    const particles = [];
+    const colors = ["rgba(200,16,46,0.52)", "rgba(191,163,106,0.34)", "rgba(255,255,255,0.38)"];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    function seedParticles() {
+      particles.length = 0;
+      const count = window.innerWidth < 760 ? 32 : 58;
+      for (let i = 0; i < count; i += 1) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 2.1 + 0.8,
+          dx: (Math.random() - 0.5) * 0.42,
+          dy: (Math.random() - 0.5) * 0.42,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        });
+      }
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p) => {
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        ctx.beginPath();
+        ctx.fillStyle = p.color;
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      if (!reduceMotion) requestAnimationFrame(drawParticles);
+    }
+
+    resizeCanvas();
+    seedParticles();
+    drawParticles();
+    window.addEventListener("resize", () => {
+      resizeCanvas();
+      seedParticles();
+    });
+  </script>
+</body>
+</html>
